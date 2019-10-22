@@ -111,3 +111,4 @@ dmypy.json
 
 # add
 .vscode
+.ipynb_checkpoints/
