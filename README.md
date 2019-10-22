@@ -10,4 +10,4 @@
 - python 자료형(list, dict) 실습
 - python 함수
 - python web scrapping
-- python class
+- python class# lecture_code
