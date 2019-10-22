@@ -6,3 +6,8 @@
 - Python remind
 
 ## [D02] 191022
+
+- python 자료형(list, dict) 실습
+- python 함수
+- python web scrapping
+- python class
