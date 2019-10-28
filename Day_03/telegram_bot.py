@@ -32,7 +32,7 @@ def send():
 def webhook():
     #1. webhook을 통해 telegram에 보낸 요청 안에 있는 메시지를 가져와서
     url = f'{base}/bot{token}/setWebhook?url=https://664fb30a.ngrok.io/{token}'
-    # https://api.telegram.org/bot909866102:AAFrFgNXrVLzFhsQVxWFzGG0YMNuA3ySLEU/setWebhook?url=https://664fb30a.ngrok.io/909866102:AAFrFgNXrVLzFhsQVxWFzGG0YMNuA3ySLEU
+    #
     requests.get(url)
     #2. 그대로 전송
     res = request.get_json()
