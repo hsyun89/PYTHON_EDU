@@ -1,0 +1,17 @@
+{% extends 'students/base.html' %}
+
+{% block title %}STUDENTs{% endblock %}
+{% block body %}
+    <h1 class='text-center'>Articles</h1>
+    <a href="/students/new/">[학생 데이터 입력]</a>
+    <hr>
+    {% for student in students %}
+        <p>No.{{ student.pk }}</p>
+        <p>이름: {{ student.name }}</p>
+        <p>나이: {{ student.age }}</p>
+        <p>e-mail: {{ student.email }}</p>
+        <!-- <p>글 내용: {{ article.content }}</p> -->
+        <!-- <a href="/articles/{{ article.pk }}/">[글 상세보기]</a> -->
+        <hr>
+    {% endfor %}
+{% endblock %}
