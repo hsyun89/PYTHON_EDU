@@ -35,7 +35,7 @@
 
 
 
-## [D05] 191025 - 아이디어톤
+## [D05] 191025 - 1차 아이디어톤
 
 ## [D06] 191028
 
@@ -85,3 +85,35 @@
 - Django 1:N Intro
   - comment_create
   - comment_delete
+
+
+
+## [D12] 191105
+
+- Django Static Image Upload
+- Django Media Image Upload
+  - Resize Image Upload (Win7 OSError > Win10 or Mac recommend)
+
+
+
+## [D13] 191106
+
+- Django 1:N 실습(Genre/Movie/Score)
+- Favicon
+- Django Form
+  - get_object_or_404
+
+
+
+## [D14] 191107
+
+- 2차 아이디어톤 준비
+
+
+
+## [D15] 191108 - 2차 아이디어톤
+
+- GoldenHour (실시간 응급실 가용병상 조회 서비스) - 최영선, 전지나, 오현경
+- 사자매 (의약품 주의사항 정보 제공 서비스) - 이영걸, 윤현수, 경현, 호유송
+- Our Kitchen (공유주방 플랫폼) - 이민우, 김소미, 강다영
+- 5인용 (집 밖은 위험해) - 설동재, 고예성, 박건호, 박찬우, 홍성재

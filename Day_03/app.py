@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import random
 from datetime import datetime
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -20,16 +21,17 @@ def cube(num):
     result = num**3 # num*num*num
     return f'{num}의 세제곱은 {result}입니다.'
 
-@app.route('/dinner/<int:person>')
+@app.route("/dinner/<int:person>")
 def dinner(person):
-    menu = ['짜장면','짬뽕','볶음밥','고추잡채밥','탕수육']
+    menu = ['짜장면','짬뽕','볶음밥','고추잡채밥','마파두부밥']
     order = random.sample(menu, k=person)
     return str(order)
 
-@app.route('/lotto')
+@app.route("/lotto")
 def lotto():
-    lottoNum = random.sample(range(1,46),6)
-    return str(lottoNum)
+    nums = range(1,46)
+    lotto = random.sample(nums, k=6)
+    return str(lotto)
 
 @app.route("/html")
 def html():
@@ -37,14 +39,10 @@ def html():
 
 @app.route("/d_day")
 def d_day():
-    # import에 from datetime 붙이면
-    # today = datetime.datetime.now()
-    today = datetime.datetime.now()
-    # finish = datetime.datetime(2019,11,27)
-    finish = datetime.datetime(2019,11,27)
-
+    today = datetime.now()
+    finish = datetime(2019,11,27)
     remain = finish - today
-    return f'우리가 같이 있을 수 있는 시간이 이제 {remain}일 밖에 남지 않았어!'
+    return f'우리가 같이 있을 수 있는 시간이 이제 {remain}일 밖에 안남았어..ㅠㅠ'
 
 @app.route("/naver")
 def naver():
@@ -69,13 +67,13 @@ def pong():
     age = request.args.get('age')
     return render_template('pong.html', name=name, age=age)
 
+@app.route('/name')
+def name():
+    return render_template('name.html')
+
 @app.route('/god')
 def god():
-    return render_template('god.html')
-
-@app.route('/godpong')
-def godpong():
     name = request.args.get('name')
-    stats = ['귀여움','섹시함','진지함','잘생김','질투심','학점','재력']
-    size = ['많이', '적당히', '조금']
-    return render_template('godpong.html', name=name, stats=random.sample(stats,3), size=random.sample(size,3))
+    source = ['냉정','열정','잘생김','못생김','매력','시크','섹시']
+    style = random.sample(source, 3)
+    return render_template('god.html', name=name, style=style)

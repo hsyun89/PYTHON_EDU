@@ -10,4 +10,6 @@ urlpatterns = [
     path('lotto/', views.lotto),
     path('cube/<int:num>/', views.cube),
     path('static_example/', views.static_example),
+    path('dtl/', views.dtl),
+    path('kospi/', views.kospi),
 ]

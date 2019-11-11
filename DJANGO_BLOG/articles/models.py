@@ -1,16 +1,17 @@
 from django.db import models
 from imagekit.models import ProcessedImageField
-from imagekit.processors import ResizeToFill,Thumbnail
+from imagekit.processors import ResizeToFill, Thumbnail
 
 class Article(models.Model):
     title = models.CharField(max_length=10)
     content = models.TextField()
-    image = ProcessedImageField(
-        upload_to = 'articles/images',      # 저장 위치(MEDIA_ROOT/articles/images)
-        processors= [Thumbnail(200,300)],   # 처리할 작업 목록
-        format='jpeg',                       # 저장 포맷
-        options={'quality':90},             # 추가 옵션
-    )
+    image = models.ImageField()
+    # image = ProcessedImageField(                # Win7 OSError issue 로 Win10 이나 Mac 에서만 해주시는걸로..ㅠㅠ
+    #     upload_to = 'articles/images',          # 저장 위치(MEDIA_ROOT/articles/images)
+    #     processors = [ResizeToFill(200, 300)],  # 처리할 작업 목록
+    #     format = 'jpeg',                        # 저장 포맷
+    #     options = {'quality':90},               # 추가 옵션
+    # )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
