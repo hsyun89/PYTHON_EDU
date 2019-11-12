@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Article, Comment
+from .form import ArticleForm, CommentForm
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     articles = Article.objects.order_by('-pk')
@@ -8,7 +11,7 @@ def index(request):
 
 # def new(request):
 #     return render(request, 'articles/new.html')
-
+@login_required
 def create(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -26,6 +29,7 @@ def detail(request, article_id):
     comments = article.comment_set.all()
     return render(request, 'articles/detail.html', {'article':article, 'comments':comments})
 
+@login_required
 def delete(request, article_id):
     article = Article.objects.get(pk=article_id)
     if request.method == 'POST':
@@ -37,7 +41,7 @@ def delete(request, article_id):
 # def edit(request, pk):
 #     article = Article.objects.get(pk=pk)
 #     return render(request, 'articles/edit.html', {'article':article})
-
+@login_required
 def update(request, article_id):
     article = Article.objects.get(pk=article_id)
     if request.method == 'POST':
