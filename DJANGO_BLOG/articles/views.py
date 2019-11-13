@@ -18,6 +18,7 @@ def create(request):
         content = request.POST.get('content')
         image = request.FILES.get('image')
         article = Article(title=title, content=content, image=image)
+        article.user = request.user
         article.save()
         return redirect('articles:detail', article.pk)
     else:
@@ -32,11 +33,14 @@ def detail(request, article_id):
 @login_required
 def delete(request, article_id):
     article = Article.objects.get(pk=article_id)
-    if request.method == 'POST':
-        article.delete()
-        return redirect('articles:index')
+    if article.user==request.user:
+        if request.method == 'POST':
+            article.delete()
+            return redirect('articles:index')
+        else:
+            return redirect('articles:detail', article.pk)
     else:
-        return redirect('articles:detail', article.pk)
+        return redirect('articles:index')
 
 # def edit(request, pk):
 #     article = Article.objects.get(pk=pk)
@@ -44,14 +48,16 @@ def delete(request, article_id):
 @login_required
 def update(request, article_id):
     article = Article.objects.get(pk=article_id)
-    if request.method == 'POST':
-        article.title = request.POST.get('title')
-        article.content = request.POST.get('content')
-        article.image = request.FILES.get('image')
-        article.save()
-        return redirect('articles:detail', article.pk)
+    if article.user==request.user:
+        if request.method == 'POST':
+            article.title = request.POST.get('title')
+            article.content = request.POST.get('content')
+            article.image = request.FILES.get('image')
+            article.save()
+            return redirect('articles:detail', article.pk)
     else:
-        return render(request, 'articles/edit.html', {'article':article})
+        return redirect('articles:index')
+    return render(request, 'articles/edit.html', {'article':article})
 
 def comment_create(request, article_id):
     article = Article.objects.get(pk=article_id)
