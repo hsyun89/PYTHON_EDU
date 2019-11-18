@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'articles',
+    'accounts',
     'students',
     'jobs',
     'movies',
@@ -44,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'django_extensions',
-    'accounts',
     'bootstrap4',
 ]
 

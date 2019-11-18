@@ -116,4 +116,48 @@
 - GoldenHour (실시간 응급실 가용병상 조회 서비스) - 최영선, 전지나, 오현경
 - 사자매 (의약품 주의사항 정보 제공 서비스) - 이영걸, 윤현수, 경현, 호유송
 - Our Kitchen (공유주방 플랫폼) - 이민우, 김소미, 강다영
-- 5인용 (집 밖은 위험해) - 설동재, 고예성, 박건호, 박찬우, 홍성재 test
+- 5인용 (집 밖은 위험해) - 설동재, 고예성, 박건호, 박찬우, 홍성재
+
+
+
+## [D16] 191111
+
+- Django 1:N 실습 풀이
+- Django form class review
+- Django ModelForm
+  - request.resolver_match.url_name
+  - bootstrap_form
+
+
+
+## [D17] 191112
+
+- Django ModelForm review
+- Django Authentication
+  - Signup / Login / Logout / Quit
+
+
+
+## [D18] 191113
+
+- Webpage Designing(Bootstrap)
+- Django Authentication
+  - Edit / Password
+  - template: auth_form
+  - Model: article.user
+
+
+
+## [D19] 191114
+
+- Django Authentication
+  - comment.user
+- Django Model Relation
+  - 1:N (Article:Comment / User:Article / User:Comment)
+  - M:N (User:Article[Like] / User:User[Following/Follower]) Logic
+
+
+
+## [D20] 191115
+
+- Django ModelForm, 1:N, Auth 종합실습(Movie / Rating)
